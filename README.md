@@ -4,13 +4,13 @@ Demo PDF: An app that demonstartes different PDF generation techniques with in a
 
 Initial Project Setup
 -----------
-> grails -version
+> > grails -version
 
 Grails version: 2.4.4
 
-> bower update && bower install phantomjs
+> > bower update && bower install phantomjs
 
-> phantomjs --version
+> > phantomjs --version
 
 1.9.8
 
