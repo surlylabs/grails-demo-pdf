@@ -7,11 +7,13 @@ Initial Project Setup
 Run
 
 > grails -version
+
 Grails version: 2.4.4
 
 > bower update && bower install phantomjs
 
 > phantomjs --version
+
 1.9.8
 
 Run Project
