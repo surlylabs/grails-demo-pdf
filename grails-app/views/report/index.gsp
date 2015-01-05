@@ -7,7 +7,7 @@
 
 <body>
 	<div style="margin: 1em;">
-		<h1>Fun reports and graphs</h1>
+		<h1>Fun with charts and graphs</h1>
 		<hr />
 		<h2>Google Charts</h2>
 		<g:render template="chartsGoogle" />
