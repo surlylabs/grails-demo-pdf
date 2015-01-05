@@ -54,10 +54,10 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-		// plugins for the build system only
+		// Plugins for the build system only
 		build ":tomcat:7.0.55"
 
-		// plugins for the compile step
+		// Plugins for the compile step
 		compile ":scaffolding:2.1.2"
 		compile ':cache:1.1.8'
 		compile ":asset-pipeline:1.9.9"
@@ -66,6 +66,14 @@ grails.project.dependency.resolution = {
 		runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
 		runtime ":database-migration:1.4.0"
 		runtime ":jquery:1.11.1"
+
+		// Charts - Admin
+		compile ":google-visualization:0.7.2"
+
+		// PDF related - Admin
+		// compile ":rendering:1.0.0"
+		// compile ":export:1.6"
+		// compile ":wkhtmltopdf:0.1.7" // TODO: Error Compilation error: startup failed.
 
 		// Uncomment these to enable additional asset-pipeline capabilities
 		// compile ":sass-asset-pipeline:1.9.0"

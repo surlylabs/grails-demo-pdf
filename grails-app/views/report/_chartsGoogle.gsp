@@ -1,7 +1,7 @@
-<div style="padding-bottom: 20px">
+<div style="padding-top: 20px; padding-bottom: 20px">
 	<h3>Charts smoke-test js only:</h3>
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-
+	<br />
 	<h3>Pie Chart JS:</h3>
 	<script>
 		google.load('visualization', '1', {'packages': ['corechart']});
@@ -44,10 +44,6 @@
 	<div id="barCoreChart"></div>
 
 	%{--TODO--}%
-	<br />
-	<br />
-	<br />
-	<br />
 	<h3>Image Bar Chart JS:</h3>
 	%{--Printing--}%
 	%{--https://developers.google.com/chart/interactive/docs/printing--}%
@@ -82,15 +78,15 @@
 	<div id='imageBarChart'></div>
 
 	%{--TODO--}%
-	%{--<h3>Charts smoke-test :google-visualization:0.7.2 plugin:</h3>--}%
-	%{--<gvisualization:apiImport />--}%
-	%{--<%--}%
-		%{--def myDailyActivitiesColumns = [['string', 'Task'], ['number', 'Hours per Day']]--}%
-		%{--def myDailyActivitiesData = [['Work', 11], ['Eat', 2], ['Commute', 2], ['Watch TV', 2], ['Sleep', 7]]--}%
-	%{--%>--}%
-	%{--<gvisualization:pieCoreChart elementId="pluginPieChart" title="My Daily Activities Pie Plugin" width="${450}" height="${300}" columns="${myDailyActivitiesColumns}" data="${myDailyActivitiesData}" />--}%
-	%{--<div id="pluginPieChart"></div>--}%
+	<h3>Charts smoke-test :google-visualization:0.7.2 plugin:</h3>
+	<gvisualization:apiImport />
+	<%
+		def myDailyActivitiesColumns = [['string', 'Task'], ['number', 'Hours per Day']]
+		def myDailyActivitiesData = [['Work', 11], ['Eat', 2], ['Commute', 2], ['Watch TV', 2], ['Sleep', 7]]
+	%>
+	<gvisualization:pieCoreChart elementId="pluginPieChart" title="My Daily Activities Pie Plugin" width="${450}" height="${300}" columns="${myDailyActivitiesColumns}" data="${myDailyActivitiesData}" />
+	<div id="pluginPieChart"></div>
 
-	%{--<gvisualization:barCoreChart elementId="pluginBarChart" title="My Daily Activities Bar Plugin" width="${450}" height="${300}" columns="${myDailyActivitiesColumns}" data="${myDailyActivitiesData}" />--}%
-	%{--<div id="pluginBarChart"></div>--}%
+	<gvisualization:barCoreChart elementId="pluginBarChart" title="My Daily Activities Bar Plugin" width="${450}" height="${300}" columns="${myDailyActivitiesColumns}" data="${myDailyActivitiesData}" />
+	<div id="pluginBarChart"></div>
 </div>
