@@ -3,7 +3,8 @@
 <!-- Load d3.js and c3.js -->
 <asset:javascript src="vendor/d3.js" />
 <asset:javascript src="vendor/c3.js" />
-<h3>C3/D3 charts</h3>
+
+<h2>C3/D3 charts</h2>
 
 <div id="c3BarChart"></div>
 <asset:script>
