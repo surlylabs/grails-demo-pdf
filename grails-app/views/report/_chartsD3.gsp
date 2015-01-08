@@ -4,6 +4,17 @@
 <asset:javascript src="vendor/d3.js" />
 <asset:javascript src="vendor/c3.js" />
 
+<!--Needed to get C3 graphs to display in the PDF.-->
+%{--https://github.com/masayuki0812/c3/issues/578--}%
+<asset:script>
+	Function.prototype.bind = Function.prototype.bind || function (thisp) {
+		var fn = this;
+		return function () {
+			return fn.apply(thisp, arguments);
+		};
+	};
+</asset:script>
+
 <h2>C3/D3 charts</h2>
 
 <div id="c3BarChart"></div>
