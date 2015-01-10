@@ -7,7 +7,14 @@
 
 <body>
 	<h3>Demo PDF Generation</h3>
-	<g:link controller="report">View Report</g:link><br />
-	<g:link controller="report" action="generate">Generate Report PDF</g:link><br/>
+	<div>
+		<g:link controller="report">View Report</g:link><br />
+		<g:link controller="report" action="generate">Generate Report PDF with PhantomJS</g:link>
+	</div>
+	<br />
+	<hr />
+	<br />
+	<h3>Export Plugin: [Exports domain attributes: ex Contact]</h3>
+	<export:formats formats="['csv', 'pdf', 'xml']" controller="export" action="index" />
 </body>
 </html>

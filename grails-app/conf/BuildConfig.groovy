@@ -40,17 +40,24 @@ grails.project.dependency.resolution = {
 		mavenLocal()
 		grailsCentral()
 		mavenCentral()
-		// uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
+		// Uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
 		// mavenRepo "http://repository.codehaus.org"
 		// mavenRepo "http://download.java.net/maven/2/"
 		// mavenRepo "http://repository.jboss.com/maven2/"
+
+		// Export plugin
+		mavenRepo "http://repo.grails.org/grails/core"
 	}
 
 	dependencies {
-		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
+		// Specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 		// runtime 'mysql:mysql-connector-java:5.1.29'
 		// runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
 		test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+
+		// Export plugin
+		compile 'org.odftoolkit:odfdom-java:jar:0.8.5'
+		compile 'commons-beanutils:commons-beanutils:1.8.3'
 	}
 
 	plugins {
@@ -71,8 +78,8 @@ grails.project.dependency.resolution = {
 		compile ":google-visualization:0.7.2"
 
 		// PDF related - Admin
+		compile ":export:1.6"
 		// compile ":rendering:1.0.0"
-		// compile ":export:1.6"
 		// compile ":wkhtmltopdf:0.1.7" // TODO: Error Compilation error: startup failed.
 
 		// Uncomment these to enable additional asset-pipeline capabilities
