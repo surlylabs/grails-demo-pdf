@@ -10,6 +10,10 @@ class PhantomController {
 	 * Need this link in rasterize.js:
 	 *   page.render('/dev/stdout', { format: 'pdf' });
 	 *
+	 * Required to run:
+	 * > brew update
+	 * > brew install phantomjs
+	 *
 	 * Files to review:
 	 *   - /grails-app/conf/Config.groovy
 	 *   - /src/javascript/phantomjs/rasterizestdout.js
