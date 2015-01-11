@@ -29,9 +29,9 @@ class PhantomController {
 
 		def footImageUrl = "${serverURL}/images/footer.png"
 
-		List cmd = ['/usr/local/bin/phantomjs', "${phantomPDFScript}", "${reportUrl}", "${reportName}.pdf", "${footImageUrl}"]
 		// http://mrhaki.blogspot.com/2011/04/groovy-goodness-new-dollar-slashy.html - $/string/$ syntax a.k.a slashy string syntax
 		// def cmd = $/phantomjs ${phantomPDFScript} ${reportUrl} ${reportName}.pdf ${footImageUrl}/$
+		List cmd = ['/usr/local/bin/phantomjs', "${phantomPDFScript}", "${reportUrl}", "${reportName}.pdf", "${footImageUrl}"]
 		log.debug "PhantomJS command: ${cmd}"
 
 		// https://grails.org/FAQ#Q: Can I use the render method to return a binary file to the client?
