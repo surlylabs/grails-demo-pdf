@@ -58,6 +58,9 @@ grails.project.dependency.resolution = {
 		// Export plugin
 		compile 'org.odftoolkit:odfdom-java:jar:0.8.5'
 		compile 'commons-beanutils:commons-beanutils:1.8.3'
+
+		// Rndering plugin
+		runtime 'org.springframework:spring-test:4.0.6.RELEASE'
 	}
 
 	plugins {
@@ -74,12 +77,12 @@ grails.project.dependency.resolution = {
 		runtime ":database-migration:1.4.0"
 		runtime ":jquery:1.11.1"
 
-		// Charts - Admin
+		// Charts
 		compile ":google-visualization:0.7.2"
 
-		// PDF related - Admin
-		compile ":export:1.6"
-		// compile ":rendering:1.0.0"
+		// PDF related
+		compile(":export:1.6") { excludes 'itext', 'itext-rtf' }
+		compile ":rendering:1.0.0"
 		// compile ":wkhtmltopdf:0.1.7" // TODO: Error Compilation error: startup failed.
 
 		// Uncomment these to enable additional asset-pipeline capabilities
