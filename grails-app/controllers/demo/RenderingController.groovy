@@ -8,12 +8,11 @@ class RenderingController {
 	 * Rendering Plugin
 	 * http://grails.org/plugin/rendering
 	 *
-	 * Watch out for:
-	 *
-	 * Error 500: Internal Server Error
-	 * URI /demo-pdf/rendering/index
-	 * Class org.xml.sax.SAXParseException
-	 * Message The markup in the document following the root element must be well-formed.
+	 * Watch out for (need well-form xhtml):
+	 *   Error 500: Internal Server Error
+	 *   URI: /demo-pdf/rendering/index
+	 *   Class: org.xml.sax.SAXParseException
+	 *   Message: The markup in the document following the root element must be well-formed.
 	 *
 	 * Files to review:
 	 *  - /grails-app/conf/BuildConfig.groovy
