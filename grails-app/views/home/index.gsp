@@ -9,7 +9,7 @@
 	<h3>Demo PDF Generation</h3>
 	<div>
 		<g:link controller="phantom">View Report</g:link><br />
-		<g:link controller="phantom" action="generate">Generate Report PDF with PhantomJS</g:link>
+		<g:link controller="phantom" action="generate" params="[waitForMillis: 2000]">Generate Report PDF with PhantomJS</g:link>
 	</div>
 	<br />
 	<hr />

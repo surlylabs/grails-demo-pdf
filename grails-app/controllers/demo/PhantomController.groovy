@@ -19,18 +19,19 @@ class PhantomController {
 	 *   - /src/javascript/phantomjs/rasterizestdout.js
 	 *   - /views/layouts/pdf.gsp
 	 */
-	def generate(String name, String url, boolean download) {
-		log.debug "Generate report: ${name} / ${url}"
+	def generate(String name, String url, boolean download, int waitForMillis) {
 		String reportName = name ? name : 'report'
+		int millis = (waitForMillis &&  waitForMillis < 0) ? waitForMillis : 20000 // 20 secs
 		String serverURL = grailsApplication.config.grails.serverURL
 		String phantomPDFScript = grailsApplication.config.grails.phantomPDFScript
 		def reportUrl = url ? url : "${serverURL}/phantom/index"
-		log.debug "Report URL: ${reportUrl}"
+		log.debug "Generate report: ${name} / ${reportUrl}"
 
 		def footImageUrl = "${serverURL}/images/footer.png"
 
-		// List cmd = ['/usr/local/bin/phantomjs', "${phantomPDFScript}", "${reportUrl}/${reportName}", "${reportName}.pdf", "${footImageUrl}"]
 		List cmd = ['/usr/local/bin/phantomjs', "${phantomPDFScript}", "${reportUrl}", "${reportName}.pdf", "${footImageUrl}"]
+		// http://mrhaki.blogspot.com/2011/04/groovy-goodness-new-dollar-slashy.html - $/string/$ syntax a.k.a slashy string syntax
+		// def cmd = $/phantomjs ${phantomPDFScript} ${reportUrl} ${reportName}.pdf ${footImageUrl}/$
 		log.debug "PhantomJS command: ${cmd}"
 
 		// https://grails.org/FAQ#Q: Can I use the render method to return a binary file to the client?
@@ -39,12 +40,17 @@ class PhantomController {
 			response.setHeader "Content-disposition", "attachment; filename=${"${reportName}.pdf"}"
 		}
 
-		// http://groovy.codehaus.org/Process+Management
-		def process = cmd.execute()
-		process.consumeProcessOutput(response.outputStream, response.outputStream)
-		// http://groovy.codehaus.org/groovy-jdk/java/lang/Process.html
-		process.waitForOrKill(20000) // 20 secs
-		log.debug 'Report out:\n' + response.outputStream
+		if (millis) {
+			// http://groovy.codehaus.org/Process+Management
+			def process = cmd.execute()
+			process.consumeProcessOutput(response.outputStream, response.outputStream)
+			// http://groovy.codehaus.org/groovy-jdk/java/lang/Process.html
+			process.waitForOrKill(millis)
+			log.debug 'Report out:\n' + response.outputStream
+		} else {
+			def process = cmd.execute()
+			response.outputStream << process.in
+		}
 
 		response.outputStream.flush()
 	}
