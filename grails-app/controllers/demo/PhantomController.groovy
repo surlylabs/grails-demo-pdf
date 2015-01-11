@@ -1,6 +1,6 @@
 package demo
 
-class ReportController {
+class PhantomController {
 	/**
 	 * Generate PDF report
 	 *

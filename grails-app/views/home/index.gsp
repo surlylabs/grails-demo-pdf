@@ -8,8 +8,8 @@
 <body>
 	<h3>Demo PDF Generation</h3>
 	<div>
-		<g:link controller="report">View Report</g:link><br />
-		<g:link controller="report" action="generate">Generate Report PDF with PhantomJS</g:link>
+		<g:link controller="phantom">View Report</g:link><br />
+		<g:link controller="phantom" action="generate">Generate Report PDF with PhantomJS</g:link>
 	</div>
 	<br />
 	<hr />
