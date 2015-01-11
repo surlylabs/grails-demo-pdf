@@ -44,17 +44,9 @@ class PhantomController {
 
 	def index() {
 		// Data to pass to view layer from a Grails controller or service.
-		def columns, data = dummyData()
-
-		render view: "index", model: [columns: columns, data: data]
-	}
-
-	/**
-	 * Helper
-	 */
-	private List dummyData() {
 		def columns = [['string', 'Task'], ['number', 'Hours per Day']]
 		def data = [['Work', 11], ['Eat', 2], ['Commute', 2], ['Watch TV', 2], ['Sleep', 7]]
-		[columns, data]
+
+		render view: "index", model: [columns: columns, data: data]
 	}
 }

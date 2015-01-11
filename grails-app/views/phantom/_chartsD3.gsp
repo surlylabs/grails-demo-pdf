@@ -17,6 +17,7 @@
 
 <h2>C3/D3 charts</h2>
 
+<h3>Bar Chart</h3>
 <div id="c3BarChart"></div>
 <asset:script>
 	var chart = c3.generate({
@@ -46,6 +47,7 @@
 	}, 1000);
 </asset:script>
 
+<h3>Pie Chart</h3>
 <div id="c3PieChart"></div>
 <asset:script>
 	var chart = c3.generate({
