@@ -14,11 +14,13 @@ class ExportController {
 	 *  - /grails-app/conf/UrlMappings.groovy
 	 */
 	def index(String extension) {
+		def contacts = Contact.findAll() ?: [new Contact([name: 'New Tables', email: 'new@surlylabs.com'])]
+
 		log.debug "Extension: ${extension}"
 		if (extension) {
 			response.contentType = grailsApplication.config.grails.mime.types[extension]
 			response.setHeader("Content-disposition", "attachment; filename=index.${extension}")
-			exportService.export(extension, response.outputStream, [new Contact([name: 'Robert Tables', email: 'robert@surlylabs.com'])], [:], [:])
+			exportService.export(extension, response.outputStream, contacts, [:], [:])
 		} else {
 			render "Extension ${extension} not found."
 		}
