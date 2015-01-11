@@ -9,13 +9,18 @@ class PhantomController {
 	 * http://stackoverflow.com/questions/12403817/phantomjs-pipe-input/17286691#17286691
 	 * Need this link in rasterize.js:
 	 *   page.render('/dev/stdout', { format: 'pdf' });
+	 *
+	 * Files to review:
+	 *   - /grails-app/conf/Config.groovy
+	 *   - /src/javascript/phantomjs/rasterizestdout.js
+	 *   - /views/layouts/pdf.gsp
 	 */
 	def generate(String name, String url) {
 		log.debug "Generate report: ${name} / ${url}"
 		String reportName = name ? name : 'report'
 		String serverURL = grailsApplication.config.grails.serverURL
 		String phantomPDFScript = grailsApplication.config.grails.phantomPDFScript
-		def reportUrl = url ? url : "${serverURL}/report/index"
+		def reportUrl = url ? url : "${serverURL}/phantom/index"
 		log.debug "Report URL: ${reportUrl}"
 
 		def footImageUrl = "${serverURL}/images/footer.png"
@@ -38,7 +43,7 @@ class PhantomController {
 	}
 
 	def index() {
-		// Data to pass to view layer from Grails domain/service.
+		// Data to pass to view layer from a Grails controller or service.
 		def columns, data = dummyData()
 
 		render view: "index", model: [columns: columns, data: data]

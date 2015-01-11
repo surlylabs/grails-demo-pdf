@@ -26,7 +26,7 @@ if (system.args.length < 3 || system.args.length > 5) {
 		format: "Letter",
 		orientation: "portrait",
 		footer: {
-			height: "3.0cm",
+			height: "6.0cm",
 			contents: phantom.callback(function(pageNum, numPages) {
 				var footerHtml = "";
 				if (footerImageUrl != null) {

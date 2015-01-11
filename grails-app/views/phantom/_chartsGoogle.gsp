@@ -44,7 +44,6 @@
 	</script>
 	<div id="barCoreChart"></div>
 
-	%{--TODO--}%
 	<h3>Image Bar Chart JS:</h3>
 	%{--Printing--}%
 	%{--https://developers.google.com/chart/interactive/docs/printing--}%
@@ -78,7 +77,6 @@
 	</script>
 	<div id='imageBarChart'></div>
 
-	%{--TODO--}%
 	<h3>Charts smoke-test :google-visualization:0.7.2 plugin:</h3>
 	<gvisualization:apiImport />
 	<%

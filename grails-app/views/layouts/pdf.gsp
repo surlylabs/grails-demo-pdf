@@ -22,5 +22,10 @@
 	<g:layoutBody />
 
 	<asset:deferredScripts />
+
+	<!--Needed to get footer image from rasterizestdout to display in the PDF.-->
+	<div style="display:none">
+		<img src="/demo-pdf/images/footer.png" alt="Surly Labs footer" />
+	</div>
 </body>
 </html>

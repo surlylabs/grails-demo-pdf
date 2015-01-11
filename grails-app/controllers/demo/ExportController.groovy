@@ -7,6 +7,11 @@ class ExportController {
 	 * Export Plugin
 	 * http://grails.org/plugin/export
 	 * [Section] To make the plugin work you need to add some code to your controller.
+	 *
+	 * Files to review:
+	 *  - /grails-app/conf/Bootstrap.groovy
+	 *  - /grails-app/conf/BuildConfig.groovy
+	 *  - /grails-app/conf/UrlMappings.groovy
 	 */
 	def index(String extension) {
 		log.debug "Extension: ${extension}"

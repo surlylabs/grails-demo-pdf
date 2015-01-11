@@ -70,7 +70,7 @@ environments {
 	test {
 		grails.logging.jul.usebridge = false
 		grails.phantomPDFScript = "src/javascript/phantomjs/rasterizestdout.js"
-		grails.serverURL = "http://localhost:8080/first-step"
+		grails.serverURL = "http://localhost:8080/demo-pdf"
 	}
 	production {
 		grails.logging.jul.usebridge = false
