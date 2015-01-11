@@ -24,9 +24,9 @@ class RenderingController {
 		def data = [['Work', 11], ['Eat', 2], ['Commute', 2], ['Watch TV', 2], ['Sleep', 7]]
 
 		if (fileName) {
-			renderPdf(template: "/rendering/test", model: [columns: columns, data: data], filename: fileName)
+			renderPdf(template: "/admin/hero", model: [columns: columns, data: data], filename: fileName)
 		} else {
-			renderPdf(template: "/rendering/test", model: [columns: columns, data: data])
+			renderPdf(template: "/admin/hero", model: [columns: columns, data: data])
 		}
 	}
 

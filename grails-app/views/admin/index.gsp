@@ -15,6 +15,7 @@
 
 	<div id="page-body" role="main">
 		<h1><g:message code="app.label" /> &mdash; <g:message code="admin.label" /></h1>
+		<g:render template="hero" />
 		<g:render template="controllers" />
 	</div>
 </body>
