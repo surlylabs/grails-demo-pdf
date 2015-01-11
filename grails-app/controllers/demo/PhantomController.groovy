@@ -19,7 +19,7 @@ class PhantomController {
 	 *   - /src/javascript/phantomjs/rasterizestdout.js
 	 *   - /views/layouts/pdf.gsp
 	 */
-	def generate(String name, String url) {
+	def generate(String name, String url, boolean download) {
 		log.debug "Generate report: ${name} / ${url}"
 		String reportName = name ? name : 'report'
 		String serverURL = grailsApplication.config.grails.serverURL
@@ -35,6 +35,9 @@ class PhantomController {
 
 		// https://grails.org/FAQ#Q: Can I use the render method to return a binary file to the client?
 		response.contentType = "application/pdf"
+		if (download) {
+			response.setHeader "Content-disposition", "attachment; filename=${"${reportName}.pdf"}"
+		}
 
 		// http://groovy.codehaus.org/Process+Management
 		def process = cmd.execute()
@@ -47,7 +50,7 @@ class PhantomController {
 	}
 
 	def index() {
-		// Data to pass to view layer from a Grails controller or service.
+		// Data to pass from a Grails controller or service to view layer.
 		def columns = [['string', 'Task'], ['number', 'Hours per Day']]
 		def data = [['Work', 11], ['Eat', 2], ['Commute', 2], ['Watch TV', 2], ['Sleep', 7]]
 
